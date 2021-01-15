@@ -1,5 +1,5 @@
 # Genio Politecnico
-Proyecto realizado materia Estructura de Datos.
+Proyecto realizado materia Estructura de Datos.  
 Genio Politécnico es un juego basado en un arbol binario con el objetivo de predecir un animal que el usuario tenga en mente.  
 
 ## Capturas
