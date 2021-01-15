@@ -1,0 +1,17 @@
+#P es un mamifero?
+#P es un animal domestico?
+#P tiene garras y bigotes ?
+#P es un roedor ? 
+#R un raton
+#R un gato
+#P tiene pico ?
+#R un loro
+#R un perro
+#P es un animal de granja?
+#R una oveja
+#R un elefante
+#P es un ave?
+#R un pinguino
+#P vive en el oceano?
+#R un calamar
+#R una araña
