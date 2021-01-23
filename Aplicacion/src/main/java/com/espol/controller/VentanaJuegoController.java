@@ -76,7 +76,7 @@ public class VentanaJuegoController implements Initializable {
         textRespuesta.setTextFormatter(new TextFormatter<>(change -> 
                 (change.getControlNewText().matches("[a-zA-Z ]*")? change : null)));
         arbolDesicion = new ArbolDesicion();
-        arbolDesicion.cargarDatos(e);
+        arbolDesicion.cargarDatos(enlaceInfo);
         initComponents();
 
         
