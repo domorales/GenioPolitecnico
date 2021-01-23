@@ -55,13 +55,13 @@ public class VentanaJuegoController implements Initializable {
     private Dato datoOriginal;
     private final Alert alert = new Alert(Alert.AlertType.INFORMATION);
     private DialogPane dialogPane;
-    private final String  cssDiagPanel= "file:src/main/resources/com/espol/css/"
+    private static final String  cssDiagPanel= "file:src/main/resources/com/espol/css/"
                 + "dialogPane.css";
-    private final String imgRespuesta = "src/main/resources/com/espol/imagenes/"
+    private static final String imgRespuesta = "src/main/resources/com/espol/imagenes/"
                                 + "respuesta.png";
-    private final String imgPregunta = "src/main/resources/com/espol/imagenes/"
+    private static final String imgPregunta = "src/main/resources/com/espol/imagenes/"
                                 + "pregunta.png";
-    private final String enlaceInfo = "info.txt" ;
+    private static final String enlaceInfo = "info.txt" ;
     
 
     /**
