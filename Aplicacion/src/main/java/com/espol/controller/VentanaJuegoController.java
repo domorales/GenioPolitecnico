@@ -78,8 +78,6 @@ public class VentanaJuegoController implements Initializable {
         arbolDesicion = new ArbolDesicion();
         arbolDesicion.cargarDatos(enlaceInfo);
         initComponents();
-
-        
     }    
 
     @FXML
@@ -87,7 +85,9 @@ public class VentanaJuegoController implements Initializable {
         if(dato.esPregunta()){
             dato= arbolDesicion.datoRight(dato);
             labelRespuestaArbol.setText(dato.getInfo());
-            if(dato.esRespuesta());
+            if(dato.esRespuesta())
+                imagenTitulo.setImage(new Image(
+                        new File(imgRespuesta).toURI().toString()));
         }
         else {
             imagenTitulo.setImage(new Image(
@@ -98,7 +98,6 @@ public class VentanaJuegoController implements Initializable {
             alert.showAndWait();
             panelGame.setVisible(false);
             panelFormular.setVisible(true);
-
         }
  
     }
@@ -173,7 +172,6 @@ public class VentanaJuegoController implements Initializable {
         imagenTitulo.setImage(new Image(
                         new File(imgPregunta).toURI().toString()));
         labelRespuestaArbol.setText(dato.getInfo());
-        
     }
     
     private boolean validateInText(){
