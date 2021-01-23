@@ -2,6 +2,8 @@
 #P es un animal domestico?
 #P tiene garras y bigotes ?
 #P es un roedor ? 
+#P tiene una cola corta 
+#R un hamster
 #R un raton
 #R un gato
 #P tiene pico ?

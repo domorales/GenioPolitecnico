@@ -12,7 +12,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 
 
 /**
@@ -22,16 +21,16 @@ import javafx.scene.control.Button;
  */
 public class VistaPrincipalController implements Initializable {
 
-    @FXML
-    private Button buttonPlay;
 
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+       //TODO
     }
 
     @FXML

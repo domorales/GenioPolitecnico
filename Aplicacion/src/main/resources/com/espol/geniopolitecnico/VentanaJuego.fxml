@@ -32,8 +32,8 @@
                   <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="133.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button fx:id="buttonNo" mnemonicParsing="false" onAction="#buttonNo" prefHeight="44.0" prefWidth="93.0" style="-fx-background-color: #9725A3; -fx-background-radius: 10px; -fx-border-color: white; -fx-border-radius: 10px;" text="NO" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                  <Button fx:id="buttonYes" mnemonicParsing="false" onAction="#buttonYes" prefHeight="44.0" prefWidth="93.0" style="-fx-background-color: #731AD3; -fx-background-radius: 10px; -fx-border-color: white; -fx-border-radius: 10px;" text="SI" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Button mnemonicParsing="false" onAction="#buttonNo" prefHeight="44.0" prefWidth="93.0" style="-fx-background-color: #9725A3; -fx-background-radius: 10px; -fx-border-color: white; -fx-border-radius: 10px;" text="NO" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Button mnemonicParsing="false" onAction="#buttonYes" prefHeight="44.0" prefWidth="93.0" style="-fx-background-color: #731AD3; -fx-background-radius: 10px; -fx-border-color: white; -fx-border-radius: 10px;" text="SI" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                   <Label fx:id="labelRespuestaArbol" prefHeight="146.0" prefWidth="284.0" text="        " textAlignment="CENTER" textFill="WHITE" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font size="33.0" />
@@ -48,7 +48,7 @@
             </GridPane>
          </children>
       </Pane>
-      <Pane fx:id="PanelFormular" prefHeight="450.0" prefWidth="702.0" visible="false">
+      <Pane fx:id="panelFormular" prefHeight="450.0" prefWidth="702.0" visible="false">
          <children>
             <GridPane layoutX="10.0" prefHeight="433.0" prefWidth="683.0">
                <columnConstraints>

@@ -16,7 +16,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -33,17 +32,11 @@ import javafx.scene.input.KeyEvent;
 public class VentanaJuegoController implements Initializable {
 
     @FXML
-    private Button buttonNo;
-    @FXML
-    private Button buttonYes;
-    @FXML
     private Label labelRespuestaArbol;
     @FXML
     private ImageView imagenTitulo;
     @FXML
     private Pane panelGame;
-    @FXML
-    private Pane PanelFormular;
     @FXML
     private TextArea textRespuesta;
     @FXML
@@ -52,6 +45,8 @@ public class VentanaJuegoController implements Initializable {
     private TextArea textPregunta;
     @FXML
     private Label labelOracion;
+    @FXML
+    private Pane panelFormular;
     
     private ArbolDesicion arbolDesicion;
     private Dato dato;
@@ -60,9 +55,19 @@ public class VentanaJuegoController implements Initializable {
     private Dato datoOriginal;
     private final Alert alert = new Alert(Alert.AlertType.INFORMATION);
     private DialogPane dialogPane;
+    private final String  cssDiagPanel= "file:src/main/resources/com/espol/css/"
+                + "dialogPane.css";
+    private final String imgRespuesta = "src/main/resources/com/espol/imagenes/"
+                                + "respuesta.png";
+    private final String imgPregunta = "src/main/resources/com/espol/imagenes/"
+                                + "pregunta.png";
+    private final String enlaceInfo = "info.txt" ;
+    
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -71,7 +76,7 @@ public class VentanaJuegoController implements Initializable {
         textRespuesta.setTextFormatter(new TextFormatter<>(change -> 
                 (change.getControlNewText().matches("[a-zA-Z ]*")? change : null)));
         arbolDesicion = new ArbolDesicion();
-        arbolDesicion.cargarDatos("info.txt");
+        arbolDesicion.cargarDatos(enlaceInfo);
         initComponents();
 
         
@@ -86,14 +91,13 @@ public class VentanaJuegoController implements Initializable {
         }
         else {
             imagenTitulo.setImage(new Image(
-                        new File("src/main/resources/com/espol/imagenes/"
-                                + "respuesta.png").toURI().toString()));
+                        new File(imgRespuesta).toURI().toString()));
             alert.setAlertType(Alert.AlertType.INFORMATION);
             alert.setContentText("Ayudame, a mejorar mi predicción");
             alert.setHeaderText(null);
             alert.showAndWait();
             panelGame.setVisible(false);
-            PanelFormular.setVisible(true);
+            panelFormular.setVisible(true);
 
         }
  
@@ -106,8 +110,7 @@ public class VentanaJuegoController implements Initializable {
             labelRespuestaArbol.setText(dato.getInfo());
             if(dato.esRespuesta())
                 imagenTitulo.setImage(new Image(
-                        new File("src/main/resources/com/espol/imagenes/"
-                                + "respuesta.png").toURI().toString()));
+                        new File(imgRespuesta).toURI().toString()));
         }
         else{
             alert.setAlertType(Alert.AlertType.CONFIRMATION);
@@ -138,7 +141,7 @@ public class VentanaJuegoController implements Initializable {
         if(validateInText()){
             saveData();
             arbolDesicion.addNo(datoOriginal, datoPadre, datoHijo);
-            arbolDesicion.saveTree("info.txt");
+            arbolDesicion.saveTree(enlaceInfo);
             initComponents();
         }   
     }
@@ -148,7 +151,7 @@ public class VentanaJuegoController implements Initializable {
         if(validateInText()){
             saveData();
             arbolDesicion.addYes(datoOriginal, datoPadre, datoHijo);
-            arbolDesicion.saveTree("info.txt");
+            arbolDesicion.saveTree(enlaceInfo);
             initComponents();
         }   
     }
@@ -160,17 +163,15 @@ public class VentanaJuegoController implements Initializable {
     }
     
     private void initComponents(){
-        PanelFormular.setVisible(false);
+        panelFormular.setVisible(false);
         panelGame.setVisible(true);
         dialogPane = alert.getDialogPane();
-        dialogPane.getStylesheets().add("file:src/main/resources/com/espol/css/"
-                + "dialogPane.css");
+        dialogPane.getStylesheets().add(cssDiagPanel);
         dialogPane.getStyleClass().add("dialog-panel");
         dato = arbolDesicion.getRoot();
         labelRespuestaArbol.setText(dato.getInfo());
         imagenTitulo.setImage(new Image(
-                        new File("src/main/resources/com/espol/imagenes/"
-                                + "pregunta.png").toURI().toString()));
+                        new File(imgPregunta).toURI().toString()));
         labelRespuestaArbol.setText(dato.getInfo());
         
     }

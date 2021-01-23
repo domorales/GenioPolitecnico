@@ -51,9 +51,9 @@ public class Dato {
     public static Queue<Dato> leerInfo(String path){
         Queue<Dato> colaDatos = new LinkedList<>();
         String[] datosSplit;
+        String linea;
         try(BufferedReader br = new BufferedReader(new FileReader(path,
         StandardCharsets.UTF_8))) {
-            String linea = "";
             while((linea = br.readLine())!=null){
                 if(linea.contains("R")){
                     datosSplit = linea.split("#R");
@@ -67,7 +67,7 @@ public class Dato {
                    
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
         return colaDatos;
     }

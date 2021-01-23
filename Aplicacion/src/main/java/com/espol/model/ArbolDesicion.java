@@ -25,7 +25,7 @@ public class ArbolDesicion {
     }
     
     public boolean remove (Dato data){
-        Node padre = shearchPArent(data);
+        Node padre = shearchParent(data);
         if (padre == null ) return  false;
         else if (padre.getLeft()!= null  && padre.getLeft().getInfo().equals(data)){
             padre.setLeft(null);
@@ -80,7 +80,7 @@ public class ArbolDesicion {
     }
     
     
-    private Node shearchPArent( Dato data){
+    private Node shearchParent( Dato data){
         return shearchParent( data ,root);
     
     }
@@ -122,11 +122,9 @@ public class ArbolDesicion {
     
     public int size(){        
         return size(root);
-    
     }
     
     private int size(Node n){
-        int tamanio=0;
         if(n==null){
             return 0;
         }
@@ -139,15 +137,11 @@ public class ArbolDesicion {
     }
     
    private int altura(Node n){
-        int Altder =  0;
-        int Altizq =0;
+        int Altder=0;
+        int Altizq=0;
         if(n!=null){
-        
              Altder = (n.getRight() == null? 0:1 + altura (n.getRight()));
-
-             Altizq = (n.getLeft() == null? 0:1 + altura (n.getLeft()));
-
-            
+             Altizq = (n.getLeft() == null? 0:1 + altura (n.getLeft())); 
         }
         return Math.max(Altder,Altizq);
     }
@@ -159,21 +153,17 @@ public class ArbolDesicion {
         this.root = new Node(datos.poll());
         return add(root, datos);
     }
-    
-    private boolean add(Node node, Queue<Dato> cola){
-        if(node == null) return false;
-        if(!cola.isEmpty()){
-            if(node.getTipo().equals("P")){
-                Dato dato = cola.poll();
-                node.setLeft( new Node(dato));
-                add(node.getLeft(), cola);
-                dato = cola.poll();
-                node.setRight(new Node(dato));
-                add(node.getRight(), cola);
-            }
-            
+   
+    private boolean add(Node node, Queue<Dato> cola) {
+        if (node == null)  return false;
+        if (!cola.isEmpty() && node.getTipo().equals("P")) {
+            Dato dato = cola.poll();
+            node.setLeft(new Node(dato));
+            add(node.getLeft(), cola);
+            dato = cola.poll();
+            node.setRight(new Node(dato));
+            add(node.getRight(), cola);
         }
-        
         return true;
     }
     
@@ -197,7 +187,7 @@ public class ArbolDesicion {
                 saveTree(nodo.getLeft(),bw);
                 saveTree(nodo.getRight() , bw);
             } catch (IOException ex) {
-                System.out.println(ex.getMessage());
+                System.err.println(ex.getMessage());
             }
         } 
     }
