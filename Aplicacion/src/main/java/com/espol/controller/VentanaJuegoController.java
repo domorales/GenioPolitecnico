@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -55,13 +56,13 @@ public class VentanaJuegoController implements Initializable {
     private Dato datoOriginal;
     private final Alert alert = new Alert(Alert.AlertType.INFORMATION);
     private DialogPane dialogPane;
-    private static final String  cssDiagPanel= "file:src/main/resources/com/espol/css/"
+    private final String  cssDiagPanel= "file:src/main/resources/com/espol/css/"
                 + "dialogPane.css";
-    private static final String imgRespuesta = "src/main/resources/com/espol/imagenes/"
+    private final String imgRespuesta = "src/main/resources/com/espol/imagenes/"
                                 + "respuesta.png";
-    private static final String imgPregunta = "src/main/resources/com/espol/imagenes/"
+    private final String imgPregunta = "src/main/resources/com/espol/imagenes/"
                                 + "pregunta.png";
-    private static final String enlaceInfo = "info.txt" ;
+    private final String enlaceInfo = "info.txt" ;
     
 
     /**
@@ -76,7 +77,7 @@ public class VentanaJuegoController implements Initializable {
         textRespuesta.setTextFormatter(new TextFormatter<>(change -> 
                 (change.getControlNewText().matches("[a-zA-Z ]*")? change : null)));
         arbolDesicion = new ArbolDesicion();
-        arbolDesicion.cargarDatos(enlaceInfo);
+        arbolDesicion.cargarDatos(e);
         initComponents();
 
         
